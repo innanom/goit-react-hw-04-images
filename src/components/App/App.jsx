@@ -20,7 +20,7 @@ export const App = () => {
   const [page, setPage] = useState(1);
   const [showModal, setShowModal] = useState(false);
   const [largeImageURL, setLargeImageURL] = useState('');
-  const [tags, settags] = useState('');
+  const [tags, setTags] = useState('');
 
   useEffect(() => {
     if (images || page !== 1) {
@@ -65,6 +65,7 @@ export const App = () => {
   const toggleModal = (largeImageURL) => {
     setShowModal(prevShowModal => !prevShowModal);
     setLargeImageURL(largeImageURL);
+    setTags();
   };
  
   const totalPage = Math.ceil(allImages / pixabayApi.per_page);
