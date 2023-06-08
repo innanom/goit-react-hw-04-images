@@ -27,7 +27,8 @@ ImageGallery.propTypes = {
         PropTypes.exact({
             webformatURL: PropTypes.string.isRequired,
             largeImageURL: PropTypes.string.isRequired,
-            id: PropTypes.number.isRequired
+            id: PropTypes.number.isRequired,
+            tags: PropTypes.string
         })
     )
    

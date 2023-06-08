@@ -22,8 +22,9 @@ export const App = () => {
   const [tags, setTags] = useState('');
 
   useEffect(() => {
-    if (images || page !== 1) {
-
+    if (!images) {
+      return;
+    }
       pixabayApi.q = images;
       pixabayApi.page = page;
 
@@ -45,11 +46,10 @@ export const App = () => {
           console.log(error)
         })
         .finally(() => setIsLoading(false))
-    }
-  }, [images, page]);
+    }, [images, page]);
 
   const handleLoadMore = () => {
-    setPage(pixabayApi.page += 1);
+    setPage(prevPage => prevPage += 1);
   };
 
   const handleFormSubmit = searchImage => {
